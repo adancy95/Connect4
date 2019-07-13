@@ -33,11 +33,9 @@ let gameBoard = (function(){
         x = 125;
         y+=125;
         drawCircle(x, y);
-        console.log(`x: ${x}, y: ${y}`)
       } else {
         x+=125;
         drawCircle(x, y);
-        console.log(`x: ${x}, y: ${y}`)
       }
     }
   }
