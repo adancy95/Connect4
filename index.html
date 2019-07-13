@@ -8,7 +8,34 @@
   <title>Connect Four</title>
 </head>
 <body>
-  <canvas id="gameCanvas" width="1000px" height="700px"></canvas>
+  <header>
+    <h1>Connect Four</h1>
+  </header>
+  <div class="gameBoard">
+      <canvas id="gameCanvas" width="1000px" height="700px"></canvas>
+      <div class="score">
+        <div class="nextPlayer">
+          <h1> Player 1's Turn</h1>
+        </div>
+        <div class="players">
+            <div class="player1">
+                <img id="cookieMonster" src="./img/turtle.png" alt="cookie Monster">
+                <h2>Player 1</h2>
+                <h2>Score: <span>0</span></h2>
+              </div>
+             
+              <div class="player2">
+                  <img id="monster" src="./img/monster2.png" alt="cookie Monster">
+                  <h2>Player 2</h2>
+                  <h2>Score: <span>0</span></h2>
+              </div>
+        </div>
+       
+      </div>
+  </div>
+  
+  
+  <!-- Scripts -->
   <script src="./js/src/gameboard.js"></script>
 </body>
 </html>
