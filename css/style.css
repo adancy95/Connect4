@@ -1,0 +1,13 @@
+body {
+  background-image: url("../img/wood3.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+
+
+}
+
+#gameCanvas {
+  border: 5px saddlebrown solid;
+}
