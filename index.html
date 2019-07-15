@@ -10,12 +10,21 @@
 <body>
   <header>
     <h1>Connect Four</h1>
+    <div class="col-selector">
+        <button>0</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+      </div>
   </header>
   <div class="gameBoard">
       <canvas id="gameCanvas" width="1000px" height="700px"></canvas>
       <div class="score">
         <div class="nextPlayer">
-          <h1> Player 1's Turn</h1>
+          <h1> Player <span id="current-player">1</span>'s Turn</h1>
         </div>
         <div class="players">
             <div class="player1">
@@ -36,9 +45,9 @@
   
   
   <!-- Scripts -->
-  <script type="text/javascript" src="./js/src/gameboard.js"></script>
   <script type="text/javascript" src="./js/src/player.js"></script>
   <script type="text/javascript" src="./js/src/gameState.js"></script>
+  <script type="text/javascript" src="./js/src/gameboard.js"></script>
   <script type="text/javascript" src="./js/src/main.js"></script>
 </body>
 </html>
