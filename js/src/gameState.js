@@ -45,67 +45,87 @@ class gameState {
   }
 
 
-  winner(){
-    //vertical
-    for(let row = 0; row < 3; row++){
-      for(let col = 0; col < 7; col++){
-        if(this.gamePositions[row][col].status !== 0 && 
-          this.gamePositions[row][col].status === this.gamePositions[row + 1][col].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row + 2][col].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row + 3][col].status){
-
-            this.winner = this.gamePositions[row][col].status
-          }
-      }
+  matchSubArray(parent, child) {
+      //check if there are 4 in a row
+      let parentStr = parent.join('');
+      let childStr = child.join('');
+      return parentStr.indexOf(childStr) != -1;
     }
 
-    //horizontal
-    for(let row = 0; row < 5; row++){
-      for(let col = 0; col < 4; col++){
-        if(this.gamePositions[row][col].status !== 0 && 
-          this.gamePositions[row][col].status === this.gamePositions[row][col + 1].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row][col + 2].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row][col + 3].status){
+  verticalWin(col, player){
+      //check if there are 4 checkers in a row vertically
+      let targetArray = [player,player, player, player]
+      let checkCol = this.gamePositions[col].map(col => col.status)
+      return this.matchSubArray(checkCol, targetArray);
+    }
 
-            this.winner = this.gamePositions[row][col].status
+  horizontalWin(row, player){
+      //check if there are 4 checkers in a row horizontally
+      let targetArray = [player,player, player, player]
+      let checkRow = this.gamePositions.map(col => col[row].status)
+      return this.matchSubArray(checkRow, targetArray);
+    }
+
+  leftDiagonal(arr, row , col, player){
+      //returns the left diagonal array given the index of a point in the array
+      let targetArray = [player,player, player, player]
+      let leftDiagonalArray = []
+    
+      while(col > 0  && row < (arr[col].length)-1){
+      //traverse the array until the beg
+        row+=1;
+        col-=1;
+      }
+      while(col < arr.length && row >= 0 ){
+        leftDiagonalArray.push(arr[col][row])
+        row-=1;
+        col+=1;
           
-          }
       }
+      return this.matchSubArray(leftDiagonalArray, targetArray);
     }
 
-
-    //rightandDown
-    for(let row = 0; row < 3; row++){
-      for(let col = 0; col < 4; col++){
-        if(this.gamePositions[row][col].status !== 0 && 
-          this.gamePositions[row][col].status === this.gamePositions[row + 1][col + 1].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row + 2][col + 2].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row + 3][col + 3].status){
-
-            this.winner = this.gamePositions[row][col].status
-          }
-      }
-    }
+  rightDiagonal(arr, row , col, player){
+      //returns the right diagonal array given the index of a point in the array
   
-    //rightAndUp
-    for(let row = 3; row < 6; row++){
-      for(let col = 0; col < 4; col++){
-        if(this.gamePositions[row][col].status !== 0 && 
-          this.gamePositions[row][col].status === this.gamePositions[row - 1][col + 1].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row - 2][col + 2].status &&
-          this.gamePositions[row][col].status === this.gamePositions[row - 3][col + 3].status){
-
-            this.winner = this.gamePositions[row][col].status
-        
-          }
-      }
+  
+    let targetArray = [player,player, player, player]
+    let rightDiagonalArray = []
+    
+    while(col < arr.length && row < arr[col].length ){
+      //traverse the array until the beg
+      row+=1;
+      col+=1;
     }
-    this.gameOver = true;
-    return this.winner.bind(this)
-
-
+    while(col > 0 && row > 0 ){
+      row-=1;
+      col-=1;
+    
+      rightDiagonalArray.push(arr[col][row])
+      
+    }
+    return this.matchSubArray(rightDiagonalArray, targetArray);
+    
   }
-  
+
+  checkforWin(arr, row , col, player){
+    let h = this.horizontalWin(row, player);
+    let v = this.verticalWin(col, player);
+    let ld = this.leftDiagonal(arr, row , col, player);
+    let rd = this.rightDiagonal(arr, row , col, player);
+
+    console.log(`h:${h}, v:${v}, ld:${ld}, rd:${rd}`)
+
+    if( h || v || ld ||rd){
+      this.gameOver = true;
+      this.winner = player
+      console.log( this.gameOver)
+    } else{
+      this.gameOver
+      console.log( this.gameOver)
+    }
+  }
+    
  
   
 
