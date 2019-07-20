@@ -4,7 +4,9 @@ class gameState {
     this.gamePositions = [[],[],[],[],[],[],[]];
     this.player1 = player1;
     this.player2 = player2; 
-    this.currentPlayer = document.getElementById("current-player")   
+    this.currentPlayer = document.getElementById("current-player") ;
+    this.winner = "";
+    this.gameOver = false;
   }
 
   setCurrentPlayer(){
@@ -42,9 +44,71 @@ class gameState {
     }
   }
 
-  isGameOver(){
-    //determine if 4 pieces are in a row and returns the winning player
+
+  winner(){
+    //vertical
+    for(let row = 0; row < 3; row++){
+      for(let col = 0; col < 7; col++){
+        if(this.gamePositions[row][col].status !== 0 && 
+          this.gamePositions[row][col].status === this.gamePositions[row + 1][col].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row + 2][col].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row + 3][col].status){
+
+            this.winner = this.gamePositions[row][col].status
+          }
+      }
+    }
+
+    //horizontal
+    for(let row = 0; row < 5; row++){
+      for(let col = 0; col < 4; col++){
+        if(this.gamePositions[row][col].status !== 0 && 
+          this.gamePositions[row][col].status === this.gamePositions[row][col + 1].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row][col + 2].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row][col + 3].status){
+
+            this.winner = this.gamePositions[row][col].status
+          
+          }
+      }
+    }
+
+
+    //rightandDown
+    for(let row = 0; row < 3; row++){
+      for(let col = 0; col < 4; col++){
+        if(this.gamePositions[row][col].status !== 0 && 
+          this.gamePositions[row][col].status === this.gamePositions[row + 1][col + 1].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row + 2][col + 2].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row + 3][col + 3].status){
+
+            this.winner = this.gamePositions[row][col].status
+          }
+      }
+    }
+  
+    //rightAndUp
+    for(let row = 3; row < 6; row++){
+      for(let col = 0; col < 4; col++){
+        if(this.gamePositions[row][col].status !== 0 && 
+          this.gamePositions[row][col].status === this.gamePositions[row - 1][col + 1].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row - 2][col + 2].status &&
+          this.gamePositions[row][col].status === this.gamePositions[row - 3][col + 3].status){
+
+            this.winner = this.gamePositions[row][col].status
+        
+          }
+      }
+    }
+    this.gameOver = true;
+    return this.winner.bind(this)
+
+
   }
+  
+ 
+  
+
   
 
 }
