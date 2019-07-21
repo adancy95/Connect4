@@ -16,20 +16,18 @@ class gameBoard{
 
     update(){
       this.updateAllGamePositions()
-      this.drawCircle(this.x, this.y, this.color)
+      this.drawCircle(this.x, this.y, this.gameStateObj.getCurrentPlayer().color)
     }
 
     targetPosition(){
-      if(this.y > 700){
-        console.log(`This.y is ${this.y} and this.target y ${this.targetY}`)
+      if(this.y > this.targetY){
         this.y = this.targetY
         this.active = false;
-        this.x = 0;
-        this.y = 0;
+        
         this.ctx.clearRect(0, 0, 1000,700);
         this.drawAllGamePositions()
         this.drawCircle(this.x, this.targetY, this.color)
-      }
+      } 
     
     }
   
@@ -119,16 +117,21 @@ class gameBoard{
       //draws the 42 game positions on the board by creating evenly spaced circles in a 6 by 7 grid
       let x = 0;
       let y = 0;
+      let rowNum = 0;
+    
       for(let i = 0; i < 42; i++){
+        let color = this.gameStateObj.gamePositions[i%7][rowNum].color
+        console.log(circle)
         if(i % 7 === 0){
           x = 125;
           y+=125;
-          this.drawCircle(x, y, this.gameStateObj.gamePositions.color);
+          this.drawCircle(x, y, color);
+          rowNum += 1;
 
         
         } else {
           x+=125;
-          this.drawCircle(x, y, this.gameStateObj.gamePositions.color);
+          this.drawCircle(x, y, color);
         
         }
       }
