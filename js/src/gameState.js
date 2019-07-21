@@ -77,11 +77,12 @@ class gameState {
         col-=1;
       }
       while(col < arr.length && row >= 0 ){
-        leftDiagonalArray.push(arr[col][row])
+        leftDiagonalArray.push(arr[col][row].status)
         row-=1;
         col+=1;
           
       }
+      console.log(leftDiagonalArray)
       return this.matchSubArray(leftDiagonalArray, targetArray);
     }
 
@@ -101,7 +102,7 @@ class gameState {
       row-=1;
       col-=1;
     
-      rightDiagonalArray.push(arr[col][row])
+      rightDiagonalArray.push(arr[col][row].status)
       
     }
     return this.matchSubArray(rightDiagonalArray, targetArray);
@@ -119,6 +120,7 @@ class gameState {
     if( h || v || ld ||rd){
       this.gameOver = true;
       this.winner = player
+      alert(`The winner of this game is player ${this.winner}`)
       console.log( this.gameOver)
     } else{
       this.gameOver
