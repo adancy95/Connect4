@@ -16,25 +16,22 @@ let colBtns = document.querySelectorAll(".col-selector > button");
 
   colBtns.forEach(function(button){
     button.addEventListener('click', (e) => {
-      
+      //find the first unfilled circle in the column
       let currentCircle = newGameState.findFirstUnfilledCircle(e.target.innerText);
       currentCircle.status = newGameState.getCurrentPlayer().number;
       currentCircle.color = newGameState.getCurrentPlayer().color;
       let currentRow = currentCircle.row;
       let currentCol = currentCircle.col;
-      // console.log(`The current row is (${currentCol}, ${currentRow})`)
 
-      newGame.x = currentCircle.xLoc;
-      newGame.color = currentCircle.color;
-      newGame.targetY = currentCircle.yLoc
+      //change the color of the circle to the current player
+      newGame.ctx.clearRect(currentCircle.xLoc, currentCircle.yLoc, 50, 50);
+      newGame.drawCircle(currentCircle.xLoc, currentCircle.yLoc, currentCircle.color );
+
       
-     
-      newGame.ctx.clearRect(0, 0, 1000,700);
-    
-    
-      newGame.updateGameArea()
+      //check if there are 4 checkers in a row
       newGameState.checkforWin(newGameState.gamePositions, currentRow , currentCol, currentCircle.status)
 
+      //set a new player if the game is not over
       newGameState.setCurrentPlayer()
       
     });
