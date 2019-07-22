@@ -61,10 +61,10 @@ class gameBoard{
     drawCircle(xCord, yCord, color){
       //draws a circle on a canvas given the x and y coordinate
       this.ctx.beginPath();
-      this.ctx.arc(xCord, yCord, 50, 0, 2 * Math.PI);
+      this.ctx.arc(xCord, yCord, 38, 0, 2 * Math.PI);
       this.ctx.fillStyle = color;
       this.ctx.fill();
-      this.ctx.strokeStyle = "brown";
+      this.ctx.strokeStyle = "turquoise;";
       this.ctx.stroke();
     }
   
@@ -77,8 +77,8 @@ class gameBoard{
       for(let i = 0; i < 42; i++){
        
         if(i % 7 === 0){
-          x = 125;
-          y+=125;
+          x = 85;
+          y+=80;
           this.drawCircle(x, y, this.color);
           rowNum += 1;
           this.gameStateObj.gamePositions[(i % 7)].push(
@@ -94,7 +94,7 @@ class gameBoard{
           )
           
         } else {
-          x+=125;
+          x+=85;
           this.drawCircle(x, y, this.color);
           this.gameStateObj.gamePositions[[(i % 7)]].push(
             {
@@ -123,14 +123,14 @@ class gameBoard{
         let color = this.gameStateObj.gamePositions[i%7][rowNum].color
         console.log(circle)
         if(i % 7 === 0){
-          x = 125;
-          y+=125;
+          x = 85;
+          y+=80;
           this.drawCircle(x, y, color);
           rowNum += 1;
 
         
         } else {
-          x+=125;
+          x+=80;
           this.drawCircle(x, y, color);
         
         }
