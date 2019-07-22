@@ -1,15 +1,15 @@
 body {
-  background-image: url("../img/wood3.jpeg");
+  background-image: url("../img/Connect\ 4.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 780px;
   width: 100%;
 
 
 }
 
 header {
-  color: green;
+  color: black;
   text-align: center;
   width:1000px;
 }
@@ -20,41 +20,35 @@ header {
 }
 
 #gameCanvas {
-  border: 5px saddlebrown solid;
+  margin-left: 350px;
+  /* padding-top: 40px; */
+}
+
+.col-selector {
+  margin-left: 370px;
+  padding-top: 95px;
 }
 
 .col-selector button{
-  background-color: #4CAF50; /* Green */
+  background-color:transparent;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 0 15px;
+  margin: 0 10px;
+  
 
 }
 
 
-/* Score Board */
-
-.score {
+.nextPlayer{
+  color:black;
   display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-  width: 1000px;
-
-}
-
-.score img {
-  height: 100px;
-  width: 100px;;
-}
-
-.players {
-  display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  text-align: center;
+  padding-top: 10px;
 }
 
