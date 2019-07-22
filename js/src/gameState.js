@@ -4,7 +4,7 @@ class gameState {
     this.gamePositions = [[],[],[],[],[],[],[]];
     this.player1 = player1;
     this.player2 = player2; 
-    this.currentPlayer = document.getElementById("current-player") ;
+    this.currentPlayer = document.getElementById("current-player");
     this.winner = "";
     this.gameOver = false;
   }
@@ -114,15 +114,16 @@ class gameState {
     let v = this.verticalWin(col, player);
     let ld = this.leftDiagonal(arr, row , col, player);
     let rd = this.rightDiagonal(arr, row , col, player);
-
+   
+ 
     console.log(`h:${h}, v:${v}, ld:${ld}, rd:${rd}`)
 
     if( h || v || ld ||rd){
       this.gameOver = true;
       this.winner = player
-      alert(`The winner of this game is player ${this.winner}`)
-      console.log( this.gameOver)
-    } else{
+      document.querySelector('.stat').innerText = `Player ${this.winner} Won`;
+      
+    }  else{
       this.gameOver
       console.log( this.gameOver)
     }
