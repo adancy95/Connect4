@@ -1,6 +1,6 @@
 // creates a new player
-let p1 = new Player("Ant", 1, true, "green");
-let p2 = new Player("noah", 2, false, "black");
+let p1 = new Player("Ant", 1, true, "rgb(255, 225, 68)");
+let p2 = new Player("noah", 2, false, "rgb(140, 82, 255)");
 
 let newGameState = new gameState(p1, p2);
 
@@ -24,7 +24,7 @@ let colBtns = document.querySelectorAll(".col-selector > button");
       let currentCol = currentCircle.col;
 
       //change the color of the circle to the current player
-      newGame.ctx.clearRect(currentCircle.xLoc, currentCircle.yLoc, 50, 50);
+      newGame.ctx.clearRect(currentCircle.xLoc, currentCircle.yLoc, 40, 40);
       newGame.drawCircle(currentCircle.xLoc, currentCircle.yLoc, currentCircle.color );
 
       
