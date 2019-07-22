@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Connect Four</h1>
+    <!-- <h1>Connect Four</h1> -->
     <div class="col-selector">
         <button>0</button>
         <button>1</button>
@@ -21,27 +21,15 @@
       </div>
   </header>
   <div class="gameBoard">
-      <canvas id="gameCanvas" width="1000" height="900"></canvas>
-      <div class="score">
-        <div class="nextPlayer">
-          <h1> Player <span id="current-player">1</span>'s Turn</h1>
-        </div>
-        <div class="players">
-            <div class="player1">
-                <img id="cookieMonster" src="./img/turtle.png" alt="cookie Monster">
-                <h2>Player 1</h2>
-                <h2>Score: <span>0</span></h2>
-              </div>
-             
-              <div class="player2">
-                  <img id="monster" src="./img/monster2.png" alt="cookie Monster">
-                  <h2>Player 2</h2>
-                  <h2>Score: <span>0</span></h2>
-              </div>
-        </div>
-       
-      </div>
+      <canvas id="gameCanvas" width="700" height="575"></canvas>
+  
   </div>
+
+  <div class="nextPlayer">
+      <h1 id="p1"> Player 1</h1>
+      <h1 class="stat"> Player <span id="current-player">1</span>'s Turn</h1>
+      <h1> Player 2</h1>
+    </div>
   
   
   <!-- Scripts -->
