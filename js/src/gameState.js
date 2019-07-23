@@ -7,6 +7,7 @@ class gameState {
     this.currentPlayer = document.getElementById("current-player");
     this.winner = "";
     this.gameOver = false;
+    this.move = 0;
   }
 
   setCurrentPlayer(){
@@ -36,14 +37,6 @@ class gameState {
       return [...this.gamePositions[column]].reverse().find(circle => circle.status === 0)
     
   }
-
-  columnFull(column){
-    //determines if a column is full
-    if(column.includes(0) === false){
-      return true;
-    }
-  }
-
 
   matchSubArray(parent, child) {
       //check if there are 4 in a row
@@ -119,6 +112,7 @@ class gameState {
     let v = this.verticalWin(col, player);
     let ld = this.leftDiagonal(arr, row , col, player);
     let rd = this.rightDiagonal(arr, row , col, player);
+    console.log(this.move)
     
     
    
@@ -133,7 +127,11 @@ class gameState {
       document.querySelector('#new-game').style.visibility = 'visible'
       this.resetGame()
       
-    } 
+    } else if( this.move > 40){
+      document.querySelector('.stat').innerText = `Stalemate`;
+      document.querySelector('#new-game').style.visibility = 'visible'
+      this.resetGame()
+    }
   }
     
  
