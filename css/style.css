@@ -29,18 +29,35 @@ header {
   padding-top: 95px;
 }
 
-.col-selector button{
-  background-color:transparent;
+#new-game {
+  height: 50px;
+  border-radius:6px;
+  border:1px solid rgb(255, 225, 68);
+  margin-left: -50px;
+  margin-top: -40px;
+}
+
+button {
+  background-color:rgb(140, 82, 255);
   border: none;
-  color: white;
+  color:rgb(255, 225, 68) ;
   padding: 5px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 0 10px;
-  
 
+}
+
+
+.col-selector button{
+  background-color:transparent;
+
+}
+
+.col-selector {
+  visibility: hidden;
 }
 
 
@@ -48,7 +65,21 @@ header {
   color:black;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   text-align: center;
+  padding-top: 10px;
+}
+
+.nextPlayer h2:first-child{
+  padding-right: 100px;
+}
+
+.nextPlayer h1{
+  padding-right: 150px;
+}
+
+.nextPlayer h2:nth-child(3){
+  padding-right: 50px;
   padding-top: 10px;
 }
 
