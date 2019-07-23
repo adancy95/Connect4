@@ -114,6 +114,8 @@ class gameState {
     let v = this.verticalWin(col, player);
     let ld = this.leftDiagonal(arr, row , col, player);
     let rd = this.rightDiagonal(arr, row , col, player);
+    
+    
    
  
     console.log(`h:${h}, v:${v}, ld:${ld}, rd:${rd}`)
@@ -122,11 +124,10 @@ class gameState {
       this.gameOver = true;
       this.winner = player
       document.querySelector('.stat').innerText = `Player ${this.winner} Won`;
+      document.querySelector('.col-selector').style.visibility = 'hidden';
+      document.querySelector('#new-game').style.visibility = 'visible'
       
-    }  else{
-      this.gameOver
-      console.log( this.gameOver)
-    }
+    } 
   }
     
  
