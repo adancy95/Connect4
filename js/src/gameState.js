@@ -108,6 +108,11 @@ class gameState {
     return this.matchSubArray(rightDiagonalArray, targetArray);
     
   }
+  resetGame(){
+    this.gamePositions = [[],[],[],[],[],[],[]];
+    this.winner = "";
+    this.gameOver = false;
+  }
 
   checkforWin(arr, row , col, player){
     let h = this.horizontalWin(row, player);
@@ -126,6 +131,7 @@ class gameState {
       document.querySelector('.stat').innerText = `Player ${this.winner} Won`;
       document.querySelector('.col-selector').style.visibility = 'hidden';
       document.querySelector('#new-game').style.visibility = 'visible'
+      this.resetGame()
       
     } 
   }
