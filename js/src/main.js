@@ -52,6 +52,7 @@ function startGame(){
 
         //set a new player if the game is not over
         newGameState.setCurrentPlayer()
+        newGameState.move += 1;
         
       });
     })
