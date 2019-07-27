@@ -112,12 +112,6 @@ class gameState {
     let v = this.verticalWin(col, player);
     let ld = this.leftDiagonal(arr, row , col, player);
     let rd = this.rightDiagonal(arr, row , col, player);
-    console.log(this.move)
-    
-    
-   
- 
-    console.log(`h:${h}, v:${v}, ld:${ld}, rd:${rd}`)
 
     if( h || v || ld ||rd){
       this.gameOver = true;
@@ -128,6 +122,7 @@ class gameState {
       this.resetGame()
       
     } else if( this.move > 40){
+      //checks if a game is a stalemate
       document.querySelector('.stat').innerText = `Stalemate`;
       document.querySelector('#new-game').style.visibility = 'visible'
       this.resetGame()
