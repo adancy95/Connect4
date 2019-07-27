@@ -70,7 +70,7 @@ button {
   padding-top: 10px;
 }
 
-.nextPlayer h2:first-child{
+/* .nextPlayer h2:first-child{
   padding-right: 100px;
 }
 
@@ -81,7 +81,7 @@ button {
 .nextPlayer h2:nth-child(3){
   padding-right: 50px;
   padding-top: 10px;
-}
+} */
 
 
 /* Callout box - fixed position at the bottom of the page */
